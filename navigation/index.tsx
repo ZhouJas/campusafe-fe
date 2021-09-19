@@ -15,6 +15,7 @@ import useColorScheme from '../hooks/useColorScheme';
 import BottleSuccess from '../screens/BottleSuccess';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
+import ReadMessage from '../screens/ReadMessage';
 import ReportSubmitted from '../screens/ReportSubmitted';
 import SendMessage from '../screens/SendMessage';
 import TabFourScreen from '../screens/TabFourScreen';
@@ -51,6 +52,7 @@ function RootNavigator() {
       <Stack.Screen name="Report Submitted" component={ReportSubmitted}  options={{headerShown: false}}/>
       <Stack.Screen name="BottleSuccess" component={BottleSuccess}  options={{headerShown: false}}/>
       <Stack.Screen name="Send Message" component={SendMessage}/>
+      <Stack.Screen name="Read Message" component={ReadMessage}/>
 
     </Stack.Navigator>
   );
