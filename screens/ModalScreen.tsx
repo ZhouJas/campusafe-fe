@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
-import { Platform, StyleSheet, Button, Linking } from 'react-native';
+import { Platform, StyleSheet, Button, Linking, TouchableOpacity } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
@@ -10,8 +10,16 @@ export default function ModalScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Hello, Welcome to CampuSafe!</Text>
       <Text style={styles.subheader}>Here are some links and helplines to improve your mental health.</Text>
-      <View>
-
+      <View style={styles.linkview}>
+          <TouchableOpacity style={styles.links} onPress={ ()=>{ Linking.openURL('https://uwaterloo.ca/campus-wellness/')}}>
+            <Text style={styles.linktext}>Campus Wellness</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.links} onPress={ ()=>{ Linking.openURL('https://uwaterloo.ca/campus-wellness/health-services')}}>
+            <Text style={styles.linktext}>Health Services</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.links} onPress={ ()=>{ Linking.openURL('https://uwaterloo.ca/campus-wellness/counselling-services')}}>
+            <Text style={styles.linktext}>Counselling Services</Text>
+          </TouchableOpacity>
       </View>
     </View>
   );
@@ -31,9 +39,17 @@ const styles = StyleSheet.create({
     fontSize: 18,
     padding: 20
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  links: {
+    width:300,
+    height: 50,
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    margin: 8
+  },
+  linktext: {
+    fontSize: 20,
+    color: 'beige'
   },
 });
