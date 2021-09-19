@@ -92,13 +92,13 @@ export default function SendMessage({navigation}) {
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-           
             style={styles.content}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
             placeholder="Enter content here. Careful! Please don't input any personal information"
             multiline = {true}
+            blurOnSubmit={true}
           /> 
         )}
         name="content"
@@ -116,15 +116,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-start',
     paddingTop: 20,
     backgroundColor: '#f7f2e9'
   },
   title: {
-    
     fontSize: 20,
     alignSelf: 'flex-start',
-    paddingLeft: 30
+    paddingLeft: 35
   },
   separator: {
     marginVertical: 30,
@@ -138,11 +136,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 20,
     paddingLeft: 10,
-    width: 300,
+    width: 340,
     height: 50
   },
   dropdown:{
-    
     alignSelf: 'center',
     borderColor: 'black',
     backgroundColor: 'transparent',
@@ -150,12 +147,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginHorizontal: 20,
     paddingLeft: 10,
-    width: 300,
+    width: 340,
     height: 50,
     borderRadius: 0
   },
   submit: {
-    width:300,
+    width:340,
     height: 50,
     backgroundColor: 'black',
     justifyContent: 'center',
@@ -176,7 +173,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 40,
     paddingLeft: 10,
-    width: 300,
+    width: 340,
     height: 300
   }
 });
