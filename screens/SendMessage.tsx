@@ -16,7 +16,7 @@ export default function SendMessage({navigation}) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
 			};
-			fetch('http://142.93.149.113/bottles', requestOptions)
+			fetch('http://142.93.149.115/bottles', requestOptions)
         .then(response => response.json())
         .then((data) => console.log('This is your data', data));
       console.log("past http request");
