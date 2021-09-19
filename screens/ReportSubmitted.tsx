@@ -13,17 +13,17 @@ export default function ReportSubmitted({ navigation }) {
     }
     const onHome = (data: any) => {
         console.log(data);
-        navigation.navigate('Home')
+        navigation.navigate('TabOne')
     }
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Report Submitted</Text>
-        <Image source={{uri: '../assets/images/reportConfirmation.png'}}></Image>
+        <Image source={require('../assets/images/reportConfirmation.png')}></Image>
       <TouchableOpacity onPress={onSubmit} style={styles.submit}>
         <Text style={styles.submitText}>Create Another</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={onHome} style={styles.submit}>
-        <Text style={styles.submitText}>Create Another</Text>
+      <TouchableOpacity onPress={onHome} style={styles.homeSubmit}>
+        <Text style={styles.submitText}>Back to Home</Text>
       </TouchableOpacity>
     </View>
   );
@@ -82,5 +82,12 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     width: 300,
     height: 200
+  },
+  homeSubmit: {
+      backgroundColor: '#BABABA',
+      width:300,
+      height: 50,
+      justifyContent: 'center',
+      alignItems: 'center'
   }
 });
