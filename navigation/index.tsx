@@ -14,6 +14,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
+import ReportSubmitted from '../screens/ReportSubmitted';
 import TabFourScreen from '../screens/TabFourScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabthreeScreen from '../screens/TabThreeScreen';
@@ -45,6 +46,7 @@ function RootNavigator() {
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
+      <Stack.Screen name="Report Submitted" component={ReportSubmitted}  options={{headerShown: false}}/>
     </Stack.Navigator>
   );
 }
@@ -53,7 +55,7 @@ function RootNavigator() {
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
-const BottomTab = createBottomTabNavigator<RootTabParamList>();
+export const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   const colorScheme = "light";

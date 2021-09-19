@@ -1,12 +1,17 @@
 import * as React from 'react';
 import { TextInput, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { useForm, Controller } from "react-hook-form";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Text, View } from '../components/Themed';
 
-export default function TabTwoScreen() {
+export default function TabTwoScreen({ navigation }) {
   const { control, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = (data: any) => console.log(data)
+    const onSubmit = (data: any) => {
+      console.log(data)
+      navigation.navigate('Report Submitted')
+    }
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Type of Incident</Text>
