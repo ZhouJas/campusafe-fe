@@ -21,7 +21,6 @@ const [items, setItems] = React.useState([
   let reponse = fetch('http://142.93.149.115/bottles/all');
   let bottles = await response.json();
   console.log(bottles);
-  console.log(jsondata);
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Filter</Text>
