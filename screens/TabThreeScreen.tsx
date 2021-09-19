@@ -13,7 +13,7 @@ export default function TabThreeScreen() {
     setMessages([
       {
         _id: 1,
-        text: 'Hello developer',
+        text: 'Hello! I’m Jessica. Thank you for using campus live chat. Chat history clears after 24 hours to maintain confidentiality.',
         createdAt: new Date(),
         user: {
           _id: 2,
