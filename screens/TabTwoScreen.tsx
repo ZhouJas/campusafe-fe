@@ -7,10 +7,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, View } from '../components/Themed';
 
 export default function TabTwoScreen({ navigation }) {
-  const { control, handleSubmit, formState: { errors } } = useForm();
+  const { control, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data: any) => {
       console.log(data)
       navigation.navigate('Report Submitted')
+      reset();
     }
   return (
     <View style={styles.container}>

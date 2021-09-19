@@ -8,8 +8,8 @@ import { useForm, Controller } from "react-hook-form";
 import { Text, View } from '../components/Themed';
 
 export default function TabfourScreen({navigation}: RootTabScreenProps<'TabFour'>) {
-  const { control, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = (data: any) => {console.log(data); navigation.navigate('BottleSuccess')}
+  const { control, handleSubmit, formState: { errors }, reset } = useForm();
+    const onSubmit = (data: any) => {console.log(data); navigation.navigate('BottleSuccess'); reset();}
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Title</Text>
