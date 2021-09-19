@@ -23,7 +23,7 @@ const linking: LinkingOptions<RootStackParamList> = {
           TabTwo: {
             screens: {
               TabTwoScreen: 'two',
-              
+
             },
           },
           TabThree: {
@@ -39,6 +39,7 @@ const linking: LinkingOptions<RootStackParamList> = {
         },
       },
       Modal: 'modal',
+      BottleSuccess: 'bottleSuccess',
       NotFound: '*',
     },
   },

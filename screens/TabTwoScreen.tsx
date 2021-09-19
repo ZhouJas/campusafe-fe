@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#f7f2e9'
+    backgroundColor: '#1c1a15'
 
   },
   dropdown: {

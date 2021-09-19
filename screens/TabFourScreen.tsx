@@ -1,12 +1,15 @@
 import * as React from 'react';
 import { TextInput, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
+import { RootTabScreenProps } from '../types';
+
+
 import { useForm, Controller } from "react-hook-form";
 
 import { Text, View } from '../components/Themed';
 
-export default function TabfourScreen() {
+export default function TabfourScreen({navigation}: RootTabScreenProps<'TabFour'>) {
   const { control, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = (data: any) => console.log(data)
+    const onSubmit = (data: any) => {console.log(data); navigation.navigate('Modal')}
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Title</Text>
