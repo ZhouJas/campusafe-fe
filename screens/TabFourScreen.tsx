@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { TextInput, Button, Alert, StyleSheet, TouchableOpacity } from "react-native";
+import { TextInput, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
 export default function TabfourScreen() {
@@ -10,10 +9,7 @@ export default function TabfourScreen() {
     const onSubmit = (data: any) => console.log(data)
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.title}>Send a Message</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabfourScreen.tsx" /> */}
-      <Text style={styles.title}>First Name:</Text>
+      <Text style={styles.title}>Title</Text>
       <Controller
         control={control}
         rules={{
@@ -25,15 +21,13 @@ export default function TabfourScreen() {
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            placeholder="first name"
+            placeholder="e.g. HTN"
           />
         )}
         name="firstName"
-        defaultValue="firstName"
+        defaultValue=""
       />
-      {errors.firstName && <Text>This is required.</Text>}
-
-      <Text style={styles.title}>Last Name: </Text>
+      <Text style={styles.title}>Tag </Text>
       <Controller
         control={control}
         rules={{
@@ -46,7 +40,7 @@ export default function TabfourScreen() {
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            placeholder="last name"
+            placeholder="Select Tag"
           />
         )}
         name="lastName"
@@ -67,6 +61,7 @@ export default function TabfourScreen() {
             onChangeText={onChange}
             value={value}
             placeholder="Content"
+            multiline = {true}
           />
         )}
         name="lastName"
@@ -74,10 +69,9 @@ export default function TabfourScreen() {
       />
 
       <TouchableOpacity onPress={handleSubmit(onSubmit)} style={styles.submit}>
-    <Text style={styles.submitText}>Submit</Text>
-  </TouchableOpacity>
+        <Text style={styles.submitText}>Submit</Text>
+      </TouchableOpacity>
     </View>
-    
   );
 }
 
@@ -92,8 +86,8 @@ const styles = StyleSheet.create({
   title: {
     
     fontSize: 20,
-    alignItems: 'flex-start',
-    paddingLeft: 10
+    alignSelf: 'flex-start',
+    paddingLeft: 30
   },
   separator: {
     marginVertical: 30,
@@ -123,9 +117,9 @@ const styles = StyleSheet.create({
     color: 'beige'
   },
   content: {
-    flex: 1,
-    
     fontSize: 20, 
+    textAlignVertical: 'top',
+    paddingTop:10,
     color: 'darkgrey',
     flexWrap: 'wrap',
     borderColor: 'black',
@@ -133,6 +127,6 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     paddingLeft: 10,
     width: 300,
-    height: 100
+    height: 300
   }
 });
