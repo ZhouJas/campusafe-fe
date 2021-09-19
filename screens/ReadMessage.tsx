@@ -18,14 +18,9 @@ const [items, setItems] = React.useState([
   {label: 'Vent', value: 'Vent'},
   {label: 'Sad', value: 'Sad'},
 ]);
-  let jsondata;  
-  fetch('http://142.93.149.115/bottles/all').then(
-        function(u){ return u.json();}
-      ).then(
-        function(json){
-          jsondata = json;
-        }
-      )
+  let reponse = fetch('http://142.93.149.115/bottles/all');
+  let bottles = await response.json();
+  console.log(bottles);
   console.log(jsondata);
   return (
     <View style={styles.container}>
