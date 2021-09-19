@@ -25,6 +25,7 @@ export default function TabfourScreen() {
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            placeholder="first name"
           />
         )}
         name="firstName"
@@ -45,10 +46,11 @@ export default function TabfourScreen() {
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            placeholder="last name"
           />
         )}
         name="lastName"
-        defaultValue="lastName"
+        defaultValue=""
       />
 
 <Text style={styles.title}>Content</Text>
@@ -64,10 +66,11 @@ export default function TabfourScreen() {
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            placeholder="Content"
           />
         )}
         name="lastName"
-        defaultValue="lastName"
+        defaultValue=""
       />
 
       <TouchableOpacity onPress={handleSubmit(onSubmit)} style={styles.submit}>
@@ -120,10 +123,11 @@ const styles = StyleSheet.create({
     color: 'beige'
   },
   content: {
+    flex: 1,
+    
     fontSize: 20, 
     color: 'darkgrey',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    flexWrap: 'wrap',
     borderColor: 'black',
     borderWidth: 1,
     marginBottom: 40,
