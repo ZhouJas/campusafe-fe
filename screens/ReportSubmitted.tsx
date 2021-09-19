@@ -40,8 +40,9 @@ const styles = StyleSheet.create({
   title: {
     color: 'black',
     fontSize: 20,
-    alignSelf: 'flex-start',
-    paddingLeft: 30
+    alignSelf: 'center',
+    marginTop: 100,
+    marginBottom: 20
   },
   separator: {
     marginVertical: 30,
@@ -64,7 +65,8 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: 'black',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    margin: 10,
   },
   submitText: {
     fontSize: 20,
@@ -88,6 +90,7 @@ const styles = StyleSheet.create({
       width:300,
       height: 50,
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      margin: 10
   }
 });
