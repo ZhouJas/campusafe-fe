@@ -1,93 +1,150 @@
-import React, { useState } from 'react';
-import { StyleSheet, TextInput, Button } from 'react-native';
+import * as React from 'react';
+import { TextInput, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
+import { useForm, Controller } from "react-hook-form";
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
-import DateTimePicker from '@react-native-community/datetimepicker';
-
 export default function TabTwoScreen() {
-  const [text, onChangeText] = useState();
-  const [date, setDate] = useState(new Date());
-  const [dateMode, setMode] = useState('date');
-  const [dateShow, setShow] = useState(false);
-
-  const onChangeDate = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
-    setShow(Platform.OS === 'ios');
-    setDate(currentDate);
-  };
-
-    return (
-      <View style={styles.container}>
-        <View style={styles.date}>
-          <DateTimePicker
-              style={styles.date}
-              testID="dateTimePicker"
-              value={date}
-              mode='date'
-              is24Hour={true}
-              display="default"
-              onChange={onChangeDate}
-            />
-            <DateTimePicker
-              style={styles.date}
-              testID="dateTimePicker"
-              value={date}
-              mode='time'
-              is24Hour={true}
-              display="default"
-              onChange={onChangeDate}
+  const { control, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = (data: any) => console.log(data)
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Type of Incident</Text>
+      <Controller
+        control={control}
+        rules={{
+         required: true,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+            style={styles.input}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            placeholder="e.g. Public Indecency"
           />
-        </View>
-        <View style={styles.desc}>
-        <Text style={styles.title}>Description</Text>
-        <TextInput
-          style={styles.input}
-          multiline={true}
-          numberOfLines={6}
-          onChangeText={onChangeText}
-          placeholder="Please include any additional information"
-          value={text}
-        />
-        </View>
-        <Button
-          style={styles.button}
-          title="Submit"
-        />
-      </View>
-    );
+        )}
+        name="incidentType"
+        defaultValue=""
+      />
+      <Text style={styles.title}>Location</Text>
+      <Controller
+        control={control}
+        rules={{
+         maxLength: 100,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+           
+            style={styles.input}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            placeholder="e.g 123 Street Ave."
+          />
+        )}
+        name="location"
+        defaultValue=""
+      />
+      <Text style={styles.title}>Time</Text>
+      <Controller
+        control={control}
+        rules={{
+         maxLength: 100,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+           
+            style={styles.input}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            placeholder="e.g Sep 18, 2021 7:20 AM"
+          />
+        )}
+        name="time"
+        defaultValue=""
+      />
+
+<Text style={styles.title}>Description</Text>
+      <Controller
+        control={control}
+        rules={{
+         maxLength: 100,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+            style={styles.content}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            placeholder="Please include any additional information that would help us."
+            multiline = {true}
+          />
+        )}
+        name="description"
+        defaultValue=""
+      />
+
+      <TouchableOpacity onPress={handleSubmit(onSubmit)} style={styles.submit}>
+        <Text style={styles.submitText}>Submit</Text>
+      </TouchableOpacity>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    paddingTop: 20,
     backgroundColor: '#f7f2e9'
-
-  },
-  dropdown: {
-    flex: 1
-  },
-  date: {
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap'
-  },
-  desc: {
-    flex: 1
   },
   title: {
-    textAlign: 'left',
-    marginHorizontal: 20,
-    paddingVertical: 10
+    color: 'black',
+    fontSize: 20,
+    alignSelf: 'flex-start',
+    paddingLeft: 30
   },
-  input: {
-    height: 100,
-    marginHorizontal: 20,
+  separator: {
+    marginVertical: 30,
+    height: 1,
+    width: '80%',
+  },
+  input:{
+    fontSize: 20, 
+    color: 'darkgrey',
+    
+    borderColor: 'black',
     borderWidth: 1,
-    padding: 15,
+    marginBottom: 20,
+    paddingLeft: 10,
+    width: 300,
+    height: 50
   },
-  button: {
+  submit: {
+    width:300,
+    height: 50,
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  submitText: {
+    fontSize: 20,
+    color: 'beige'
+  },
+  content: {
+    fontSize: 20, 
+    textAlignVertical: 'top',
+    paddingTop:10,
+    color: 'darkgrey',
+    flexWrap: 'wrap',
+    borderColor: 'black',
+    borderWidth: 1,
+    marginBottom: 40,
+    paddingLeft: 10,
+    width: 300,
+    height: 200
   }
 });
