@@ -17,7 +17,9 @@ export default function SendMessage({navigation}) {
         body: JSON.stringify(data)
 			};
 			fetch('http://142.93.149.113/bottles', requestOptions)
-        .then(response => console.log(response.json()));
+        .then(response => response.json())
+        .then((data) => console.log('This is your data', data));
+      console.log("past http request");
       navigation.navigate('BottleSuccess'); 
       reset();
     }
