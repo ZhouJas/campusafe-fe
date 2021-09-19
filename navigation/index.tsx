@@ -12,6 +12,7 @@ import { ColorSchemeName, Pressable } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
+import BottleSuccess from '../screens/BottleSuccess';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import ReportSubmitted from '../screens/ReportSubmitted';
@@ -47,6 +48,8 @@ function RootNavigator() {
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
       <Stack.Screen name="Report Submitted" component={ReportSubmitted}  options={{headerShown: false}}/>
+      <Stack.Screen name="BottleSuccess" component={BottleSuccess}  options={{headerShown: false}}/>
+
     </Stack.Navigator>
   );
 }

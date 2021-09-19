@@ -18,7 +18,7 @@ export default function ReportSubmitted({ navigation }) {
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Report Submitted</Text>
-        <Image source={require('../assets/images/reportConfirmation.png')}></Image>
+        <Image style={styles.image} source={require('../assets/images/reportConfirmation.png')}></Image>
       <TouchableOpacity onPress={onSubmit} style={styles.submit}>
         <Text style={styles.submitText}>Create Another</Text>
       </TouchableOpacity>
@@ -33,16 +33,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     paddingTop: 20,
     backgroundColor: '#f7f2e9'
   },
   title: {
     color: 'black',
-    fontSize: 20,
-    alignSelf: 'center',
-    marginTop: 100,
-    marginBottom: 20
+    fontSize: 35,
+    marginBottom:40
   },
   separator: {
     marginVertical: 30,
@@ -66,7 +64,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
+    marginBottom:20
   },
   submitText: {
     fontSize: 20,
@@ -85,12 +83,15 @@ const styles = StyleSheet.create({
     width: 300,
     height: 200
   },
+  image: {
+    marginBottom:40,
+  },
   homeSubmit: {
-      backgroundColor: '#BABABA',
-      width:300,
-      height: 50,
-      justifyContent: 'center',
-      alignItems: 'center',
-      margin: 10
-  }
+    backgroundColor: '#BABABA',
+    width:300,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 10
+}
 });

@@ -9,7 +9,7 @@ import { Text, View } from '../components/Themed';
 
 export default function TabfourScreen({navigation}: RootTabScreenProps<'TabFour'>) {
   const { control, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = (data: any) => {console.log(data); navigation.navigate('Modal')}
+    const onSubmit = (data: any) => {console.log(data); navigation.navigate('BottleSuccess')}
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Title</Text>
