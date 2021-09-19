@@ -3,11 +3,21 @@ import { TextInput, StyleSheet, TouchableOpacity, ScrollView, Image } from "reac
 import { useForm, Controller } from "react-hook-form";
 import { Text, View } from '../components/Themed';
 import { BottleMessage } from './BottleMessage';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function ReadMessage() {
 const { control, formState: { errors }} = useForm();
+const [open, setOpen] = React.useState(false);
+const [value, setValue] = React.useState(null);
+const [items, setItems] = React.useState([
+  {label: 'Reset', value: null},
+  {label: 'Goose', value: 'Goose'},
+  {label: 'Animals', value: 'Animals'},
+  {label: 'Food', value: 'Food'},
+  {label: 'Feeling Good', value:'Feeling Good'},
+  {label: 'Vent', value: 'Vent'},
+  {label: 'Sad', value: 'Sad'},
+]);
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Filter</Text>
@@ -16,22 +26,33 @@ const { control, formState: { errors }} = useForm();
         rules={{
          maxLength: 100,
         }}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput
-           
-            style={styles.input}
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-            placeholder="Select Tag(s)"
-          />
+        render={() => (
+          <DropDownPicker
+          style={styles.dropdown}
+          textStyle={{fontSize: 20, 
+            color: 'black'}}
+            dropDownContainerStyle={{
+              width: 340,
+              alignSelf:'center'
+            }}
+            
+          open={open}
+          value={value}
+          items={items}
+          setOpen={setOpen}
+          setValue={setValue}
+          setItems={setItems}
+          placeholder="Select tag(s)"
+          mode="BADGE"
+          showBadgeDot={false}
+        />
         )}
         name="tags"
         defaultValue=""
       />
       <View style={styles.cardContainer}>
-        <BottleMessage style={styles.card} title='Chungchun Rice Dogs' tags={['Food', ' Yummy']} details='A new rice dog place opened up in the University Plaza! It tastes amazing and I cant wait to go again! 10/10 would recommend.'/>
-        <BottleMessage style={styles.card} title='Geese' tags={['Animals']} details='I saw geese crossing the street'/>
+        <BottleMessage value={value} style={styles.card} title='Chungchun Rice Dogs' tags={['Food', 'Feeling Good']} details='A new rice dog place opened up in the University Plaza! It tastes amazing and I cant wait to go again! 10/10 would recommend.'/>
+        <BottleMessage value={value} style={styles.card} title='Geese' tags={['Animals']} details='I saw geese crossing the street'/>
       </View>
     </View>
   );
@@ -68,5 +89,18 @@ const styles = StyleSheet.create({
   cardContainer: {
       alignItems: 'center',
       backgroundColor: '#f7f2e9'
-  }
+  },
+  dropdown:{
+    
+    alignSelf: 'center',
+    borderColor: 'black',
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    marginBottom: 20,
+    marginHorizontal: 10,
+    paddingLeft: 10,
+    width: 340,
+    height: 50,
+    borderRadius: 0
+  },
 });

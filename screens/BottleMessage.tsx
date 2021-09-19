@@ -2,14 +2,19 @@ import React from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 
 export function BottleMessage(props) {
-
+    const value = props.value;
+    const tags = props.tags;
+    if(tags.includes(value) || value == null) {
         return (
             <View style={styles.container}>
                 <Text style={styles.title}>{ props.title }</Text>
-                <Text style={styles.tag}>Tag(s): {props.tags}</Text>
+                <Text style={styles.tag}>Tag(s): {props.tags.map(tag => tag+', ')}</Text>
                 <Text style={styles.details}>{props.details}</Text>
             </View>
         )
+    } else {
+        return <View></View>;
+    }
 }
 
 const styles = StyleSheet.create({

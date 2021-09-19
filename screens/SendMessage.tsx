@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { TextInput, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
-import { RootTabScreenProps } from '../types';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 
 import { useForm, Controller } from "react-hook-form";
@@ -10,6 +10,16 @@ import { Text, View } from '../components/Themed';
 export default function SendMessage({navigation}) {
   const { control, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data: any) => {console.log(data); navigation.navigate('BottleSuccess'); reset();}
+    const [open, setOpen] = React.useState(false);
+    const [value, setValue] = React.useState(null);
+    const [items, setItems] = React.useState([
+      {label: 'Goose', value: 'Goose'},
+      {label: 'Animals', value: 'Animals'},
+      {label: 'Food', value: 'Food'},
+      {label: 'Feeling Good', value:'Feeling Good'},
+      {label: 'Vent', value: 'Vent'},
+      {label: 'Sad', value: 'Sad'},
+    ]);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Title</Text>
@@ -27,7 +37,7 @@ export default function SendMessage({navigation}) {
             placeholder="e.g. HTN"
           />
         )}
-        name="firstName"
+        name="title"
         defaultValue=""
       />
       <Text style={styles.title}>Tag </Text>
@@ -36,17 +46,28 @@ export default function SendMessage({navigation}) {
         rules={{
          maxLength: 100,
         }}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput
-           
-            style={styles.input}
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-            placeholder="Select Tag"
-          />
+        render={() => (
+          <DropDownPicker
+          style={styles.dropdown}
+          textStyle={{fontSize: 20, 
+            color: 'black',}}
+            dropDownContainerStyle={{
+              width: 300,
+              alignSelf:'center'
+            }}
+          multiple={true}
+          open={open}
+          value={value}
+          items={items}
+          setOpen={setOpen}
+          setValue={setValue}
+          setItems={setItems}
+          placeholder="Select tag(s)"
+          mode="BADGE"
+          showBadgeDot={false}
+        />
         )}
-        name="lastName"
+        name="tag"
         defaultValue=""
       />
 
@@ -67,7 +88,7 @@ export default function SendMessage({navigation}) {
             multiline = {true}
           /> 
         )}
-        name="lastName"
+        name="content"
         defaultValue=""
       />
 
@@ -100,13 +121,25 @@ const styles = StyleSheet.create({
   input:{
     fontSize: 20, 
     color: 'darkgrey',
-    
     borderColor: 'black',
     borderWidth: 1,
     marginBottom: 20,
     paddingLeft: 10,
     width: 300,
     height: 50
+  },
+  dropdown:{
+    
+    alignSelf: 'center',
+    borderColor: 'black',
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    marginBottom: 20,
+    marginHorizontal: 20,
+    paddingLeft: 10,
+    width: 300,
+    height: 50,
+    borderRadius: 0
   },
   submit: {
     width:300,
