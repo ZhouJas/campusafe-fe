@@ -9,7 +9,18 @@ import { Text, View } from '../components/Themed';
 
 export default function SendMessage({navigation}) {
   const { control, handleSubmit, formState: { errors }, reset } = useForm();
-    const onSubmit = (data: any) => {console.log(data); navigation.navigate('BottleSuccess'); reset();}
+    const onSubmit = (data: any) => {
+      console.log(data); 
+			const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+			};
+			fetch('http://142.93.149.113/bottles', requestOptions)
+        .then(response => console.log(response.json()));
+      navigation.navigate('BottleSuccess'); 
+      reset();
+    }
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState(null);
     const [items, setItems] = React.useState([
