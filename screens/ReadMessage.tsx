@@ -18,6 +18,11 @@ const [items, setItems] = React.useState([
   {label: 'Vent', value: 'Vent'},
   {label: 'Sad', value: 'Sad'},
 ]);
+  let allBottles = [];
+  fetch('http://142.93.149.115/bottles/all')
+  .then(response => response.json())
+  .then(data => allBottles = data);
+  console.log(allBottles);
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Filter</Text>
