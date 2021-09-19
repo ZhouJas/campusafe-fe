@@ -21,7 +21,9 @@ const [items, setItems] = React.useState([
   let allBottles = [];
   fetch('http://142.93.149.115/bottles/all')
   .then(response => response.json())
-  .then(data => allBottles.concat(data));
+  .then(data => {
+    console.log(data);
+  });
   console.log(allBottles);
   return (
     <View style={styles.container}>
