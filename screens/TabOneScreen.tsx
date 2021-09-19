@@ -6,11 +6,13 @@ import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+
   return (
     <View style={styles.container}>
               <Text style={styles.title}>Incident Map</Text>
       <Text style={styles.text}>The map below shows the incidents that were reported in the past week. Click on each individual marker to learn more.</Text>
       <MapView
+      
         provider={PROVIDER_GOOGLE}
         style={styles.map}
         initialRegion={{
@@ -18,8 +20,13 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         longitude: -80.5449,
         latitudeDelta: 0.0122,
         longitudeDelta: 0.0121,
-    }}
-  />
+    }}> 
+    <Marker 
+      key="dire"
+      coordinate={{ latitude : 43.470341 , longitude : -80.544057 }} 
+        title="Assault" 
+        description="3:13am" />
+  </MapView>
       <TouchableOpacity style={styles.update}>
         <Text style={styles.updateText}>Update Map</Text>
       </TouchableOpacity>
