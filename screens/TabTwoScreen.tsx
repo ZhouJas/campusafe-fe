@@ -46,8 +46,27 @@ export default function TabTwoScreen() {
         name="location"
         defaultValue=""
       />
+      <Text style={styles.title}>Time</Text>
+      <Controller
+        control={control}
+        rules={{
+         maxLength: 100,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+           
+            style={styles.input}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            placeholder="e.g Sep 18, 2021 7:20 AM"
+          />
+        )}
+        name="time"
+        defaultValue=""
+      />
 
-<Text style={styles.title}>Time</Text>
+<Text style={styles.title}>Description</Text>
       <Controller
         control={control}
         rules={{
@@ -59,11 +78,11 @@ export default function TabTwoScreen() {
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            placeholder="Content"
+            placeholder="Please include any additional information that would help us."
             multiline = {true}
           />
         )}
-        name="lastName"
+        name="description"
         defaultValue=""
       />
 
@@ -126,6 +145,6 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     paddingLeft: 10,
     width: 300,
-    height: 300
+    height: 200
   }
 });
