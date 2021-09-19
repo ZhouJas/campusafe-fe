@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom:20
+    marginBottom:20,
+    borderRadius:10,
   },
   submitText: {
     fontSize: 20,
@@ -89,6 +90,8 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10
+    margin: 10,
+    borderRadius:10,
+
 }
 });
