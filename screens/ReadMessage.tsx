@@ -30,6 +30,7 @@ const { control, formState: { errors }} = useForm();
         defaultValue=""
       />
       <View style={styles.cardContainer}>
+        <BottleMessage style={styles.card} title='Chungchun Rice Dogs' tags={['Food', ' Yummy']} details='A new rice dog place opened up in the University Plaza! It tastes amazing and I cant wait to go again! 10/10 would recommend.'/>
         <BottleMessage style={styles.card} title='Geese' tags={['Animals']} details='I saw geese crossing the street'/>
       </View>
     </View>

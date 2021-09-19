@@ -18,13 +18,13 @@ const styles = StyleSheet.create({
         width: 340,
         height: 150,
         padding: 10,
-        borderRadius: 10
+        borderRadius: 10,
+        marginBottom: 20,
     },
     title: {
         fontSize: 25,
         color: 'black',
-        fontWeight: 'bold',
-        alignSelf: 'flex-start'
+        fontWeight: 'bold'
     },
     tag: {
         fontStyle: 'italic',
