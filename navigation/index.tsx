@@ -14,7 +14,9 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
+import TabFourScreen from '../screens/TabFourScreen';
 import TabOneScreen from '../screens/TabOneScreen';
+import TabthreeScreen from '../screens/TabThreeScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
@@ -66,7 +68,7 @@ function BottomTabNavigator() {
         name="TabOne"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
+          title: 'Home',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Pressable
@@ -88,11 +90,29 @@ function BottomTabNavigator() {
         name="TabTwo"
         component={TabTwoScreen}
         options={{
-          title: 'Tab Two',
+          title: 'Incident Report',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+        <BottomTab.Screen
+        name="TabThree"
+        component={TabthreeScreen}
+        options={{
+          title: 'Live Chat',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+        <BottomTab.Screen
+        name="TabFour"
+        component={TabFourScreen}
+        options={{
+          title: 'Bottles',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
     </BottomTab.Navigator>
+
+    
   );
 }
 
