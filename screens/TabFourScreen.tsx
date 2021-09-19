@@ -63,9 +63,9 @@ export default function TabfourScreen({navigation}: RootTabScreenProps<'TabFour'
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            placeholder="Content"
+            placeholder="Enter content here. Careful! Please don't input any personal information"
             multiline = {true}
-          />
+          /> 
         )}
         name="lastName"
         defaultValue=""
