@@ -6,7 +6,7 @@ import { Text, View } from '../components/Themed';
 export default function BottleSuccess({navigation}) {
   const onSubmit = (data: any) => {
     console.log(data)
-    navigation.navigate('TabFour')
+    navigation.navigate('Send Message')
   }
   const onHome = (data: any) => {
       console.log(data);

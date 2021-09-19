@@ -16,9 +16,10 @@ import BottleSuccess from '../screens/BottleSuccess';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import ReportSubmitted from '../screens/ReportSubmitted';
+import SendMessage from '../screens/SendMessage';
 import TabFourScreen from '../screens/TabFourScreen';
 import TabOneScreen from '../screens/TabOneScreen';
-import TabthreeScreen from '../screens/TabThreeScreen';
+import TabThreeScreen from '../screens/TabThreeScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
@@ -49,6 +50,7 @@ function RootNavigator() {
       </Stack.Group>
       <Stack.Screen name="Report Submitted" component={ReportSubmitted}  options={{headerShown: false}}/>
       <Stack.Screen name="BottleSuccess" component={BottleSuccess}  options={{headerShown: false}}/>
+      <Stack.Screen name="Send Message" component={SendMessage}/>
 
     </Stack.Navigator>
   );
@@ -101,7 +103,7 @@ function BottomTabNavigator() {
       />
         <BottomTab.Screen
         name="TabThree"
-        component={TabthreeScreen}
+        component={TabThreeScreen}
         options={{
           title: 'Live Chat',
           tabBarIcon: ({ color }) => <TabBarIcon name="comments" color={color} />,

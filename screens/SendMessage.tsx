@@ -1,21 +1,18 @@
 import * as React from 'react';
 import { TextInput, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
+import { RootTabScreenProps } from '../types';
+
+
 import { useForm, Controller } from "react-hook-form";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Text, View } from '../components/Themed';
 
-export default function TabTwoScreen({ navigation }) {
+export default function SendMessage({navigation}) {
   const { control, handleSubmit, formState: { errors }, reset } = useForm();
-    const onSubmit = (data: any) => {
-      console.log(data)
-      navigation.navigate('Report Submitted')
-      reset();
-    }
+    const onSubmit = (data: any) => {console.log(data); navigation.navigate('BottleSuccess'); reset();}
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Type of Incident</Text>
+      <Text style={styles.title}>Title</Text>
       <Controller
         control={control}
         rules={{
@@ -27,13 +24,13 @@ export default function TabTwoScreen({ navigation }) {
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            placeholder="e.g. Public Indecency"
+            placeholder="e.g. HTN"
           />
         )}
-        name="incidentType"
+        name="firstName"
         defaultValue=""
       />
-      <Text style={styles.title}>Location</Text>
+      <Text style={styles.title}>Tag </Text>
       <Controller
         control={control}
         rules={{
@@ -46,33 +43,14 @@ export default function TabTwoScreen({ navigation }) {
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            placeholder="e.g 123 Street Ave."
+            placeholder="Select Tag"
           />
         )}
-        name="location"
-        defaultValue=""
-      />
-      <Text style={styles.title}>Time</Text>
-      <Controller
-        control={control}
-        rules={{
-         maxLength: 100,
-        }}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput
-           
-            style={styles.input}
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-            placeholder="e.g Sep 18, 2021 7:20 AM"
-          />
-        )}
-        name="time"
+        name="lastName"
         defaultValue=""
       />
 
-<Text style={styles.title}>Description</Text>
+<Text style={styles.title}>Content</Text>
       <Controller
         control={control}
         rules={{
@@ -80,15 +58,16 @@ export default function TabTwoScreen({ navigation }) {
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
+           
             style={styles.content}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
-            placeholder="Please include any additional information that would help us."
+            placeholder="Enter content here. Careful! Please don't input any personal information"
             multiline = {true}
-          />
+          /> 
         )}
-        name="description"
+        name="lastName"
         defaultValue=""
       />
 
@@ -108,7 +87,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f7f2e9'
   },
   title: {
-    color: 'black',
+    
     fontSize: 20,
     alignSelf: 'flex-start',
     paddingLeft: 30
@@ -153,6 +132,6 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     paddingLeft: 10,
     width: 300,
-    height: 200
+    height: 300
   }
 });
