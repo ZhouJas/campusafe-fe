@@ -92,13 +92,13 @@ export default function SendMessage({navigation}) {
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-           
             style={styles.content}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
             placeholder="Enter content here. Careful! Please don't input any personal information"
             multiline = {true}
+            blurOnSubmit={true}
           /> 
         )}
         name="content"
@@ -140,7 +140,6 @@ const styles = StyleSheet.create({
     height: 50
   },
   dropdown:{
-    
     alignSelf: 'center',
     borderColor: 'black',
     backgroundColor: 'transparent',

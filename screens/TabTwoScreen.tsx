@@ -85,7 +85,8 @@ export default function TabTwoScreen({ navigation }) {
             onChangeText={onChange}
             value={value}
             placeholder="Please include any additional information that would help us."
-            multiline = {true}
+            multiline ={true}
+            blurOnSubmit={true}
           />
         )}
         name="description"
