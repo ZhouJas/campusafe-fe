@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { TextInput, StyleSheet, TouchableOpacity, ScrollView, Image } from "react-native";
-import { useForm, Controller } from "react-hook-form";
+import { StyleSheet, TouchableOpacity, ScrollView, Image } from "react-native";
+import { useForm } from "react-hook-form";
 import { Text, View } from '../components/Themed';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function ReportSubmitted({ navigation }) {
   const { control, handleSubmit, formState: { errors } } = useForm();
@@ -64,7 +62,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom:20
+    marginBottom:20,
+    borderRadius:10,
   },
   submitText: {
     fontSize: 20,
@@ -92,6 +91,7 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10
+    margin: 10,
+    borderRadius:10,
 }
 });
