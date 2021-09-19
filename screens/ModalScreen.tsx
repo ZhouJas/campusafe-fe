@@ -10,7 +10,7 @@ export default function ModalScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Hello, Welcome to CampuSafe!</Text>
       <Text style={styles.subheader}>Here are some links and helplines to improve your mental health.</Text>
-      <View style={styles.linkview}>
+      <View>
           <TouchableOpacity style={styles.links} onPress={ ()=>{ Linking.openURL('https://uwaterloo.ca/campus-wellness/')}}>
             <Text style={styles.linktext}>Campus Wellness</Text>
           </TouchableOpacity>
