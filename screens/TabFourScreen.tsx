@@ -7,7 +7,7 @@ import { Text, View } from '../components/Themed';
 export default function TabfourScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab four</Text>
+      <Text style={styles.title}>Send a Message</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="/screens/TabfourScreen.tsx" />
     </View>

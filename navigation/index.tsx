@@ -69,7 +69,7 @@ function BottomTabNavigator() {
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'Home',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -91,7 +91,7 @@ function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: 'Incident Report',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
         }}
       />
         <BottomTab.Screen
@@ -99,7 +99,7 @@ function BottomTabNavigator() {
         component={TabthreeScreen}
         options={{
           title: 'Live Chat',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="comments" color={color} />,
         }}
       />
         <BottomTab.Screen
@@ -107,7 +107,7 @@ function BottomTabNavigator() {
         component={TabFourScreen}
         options={{
           title: 'Bottles',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="pencil" color={color} />,
         }}
       />
     </BottomTab.Navigator>
