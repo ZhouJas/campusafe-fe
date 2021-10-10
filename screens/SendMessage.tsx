@@ -65,7 +65,7 @@ export default function SendMessage({navigation}) {
           textStyle={{fontSize: 20, 
             color: 'black',}}
             dropDownContainerStyle={{
-              width: 300,
+              width: 340,
               alignSelf:'center'
             }}
           multiple={true}

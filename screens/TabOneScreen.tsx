@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useForm } from 'react-hook-form';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
@@ -6,6 +7,30 @@ import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+  const {handleSubmit} = useForm();
+  const [markers, updateMarkers] = React.useState(
+    [{
+      key:"dire",
+      coordinate: { latitude : 43.470341 , longitude : -80.544057 },
+      title:"Assault",
+      time: "3:13am"
+    },]
+  );
+  let limit = 1
+  const updateMap = () => {
+    updateMarkers([{
+      key:"dire",
+      coordinate: { latitude : 43.470341 , longitude : -80.544057 },
+      title:"Assault",
+      time: "3:13am"
+    },
+    {
+      key:"dire2",
+      coordinate: { latitude : 43.4718067 , longitude : -80.5490869 },
+      title:"Incident",
+      time: "4:17am"
+    },])
+  }
 
   return (
     <View style={styles.container}>
@@ -21,13 +46,16 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         latitudeDelta: 0.0122,
         longitudeDelta: 0.0121,
     }}> 
-    <Marker 
-      key="dire"
-      coordinate={{ latitude : 43.470341 , longitude : -80.544057 }} 
-        title="Assault" 
-        description="3:13am" />
+    {markers.map(marker => {
+      return <Marker 
+      key={marker.key}
+      coordinate={{latitude : marker.coordinate.latitude, longitude : marker.coordinate.longitude}} 
+        title={marker.title}
+        description={marker.time}/>
+    })}
+    
   </MapView>
-      <TouchableOpacity style={styles.update}>
+      <TouchableOpacity onPress={handleSubmit(updateMap)} style={styles.update}>
         <Text style={styles.updateText}>Update Map</Text>
       </TouchableOpacity>
     </View>

@@ -68,12 +68,12 @@ const [items, setItems] = React.useState([
         defaultValue=""
       />
       <View style={styles.cardContainer}>
-          <BottleMessage value={value} style={styles.card} title='Geese' tags={['Animals']} details=''/>
+          <BottleMessage value={value} style={styles.card} title='Geese' tags={['Animals', 'Goose']} details='Very dangerous'/>
         <BottleMessage value={value} style={styles.card} title='Chungchun Rice Dogs' tags={['Food', 'Feeling Good']} details='A new rice dog place opened up in the University Plaza! It tastes amazing and I cant wait to go again! 10/10 would recommend.'/>
-        <BottleMessage value={value} style={styles.card} title='Geese' tags={['Animals']} details='I saw geese crossing the street'/>
-        {jsonResponse.map(message=> {
-          <BottleMessage value={value} style={styles.card} title={message.Title} tags={['Animals']} details={message.Content}/>
-        })}
+        <BottleMessage value={value} style={styles.card} title='Geese' tags={['Animals', 'Goose']} details='I saw geese crossing the street'/>
+        <BottleMessage value={value} style={styles.card} title='Got an internship!' tags={['Feeling Good']} details='Worked hard for this'/>
+        <BottleMessage value={value} style={styles.card} title='HTN' tags={['Feeling Good']} details='Happy HTN!'/>
+
       </View>
     </View>
   );
